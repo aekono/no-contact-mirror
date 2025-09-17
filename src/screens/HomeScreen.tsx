@@ -26,7 +26,7 @@ import ReasonsCarousel from '../components/ReasonsCarousel';
 import MiniPreviewRow from '../components/MiniPreviewRow';
 import { requestNotifPermission, scheduleDailyReminder, cancelAllReminders } from '../lib/notifications';
 import { format } from 'date-fns';
-import { colors, spacing, radius, shadow, typography } from '../theme';
+import { useTheme } from '../hooks/useTheme';
 import { Card, Button, Chip, Row, Col, SectionTitle } from '../components/UI';
 import { StreakChart } from '../components/StreakChart';
 import { Achievements } from '../components/Achievements';
@@ -38,6 +38,7 @@ export default function HomeScreen() {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const { triggerHaptic } = useHapticFeedback();
   const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
   
   const { 
     lastContactAt, 

@@ -8,7 +8,7 @@ import HomeScreen from '../screens/HomeScreen';
 import JournalScreen from '../screens/JournalScreen';
 import HistoryScreen from '../screens/HistoryScreen';
 import AnalyticsScreen from '../screens/AnalyticsScreen';
-import { colors } from '../theme';
+import { useTheme } from '../hooks/useTheme';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
 
@@ -19,6 +19,7 @@ type RootNav = NativeStackNavigationProp<RootStackParamList>;
 export default function Tabs() {
   const nav = useNavigation<RootNav>();
   const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
 
   return (
     <Tab.Navigator

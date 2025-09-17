@@ -6,13 +6,14 @@ import { useHapticFeedback } from '../hooks/useHapticFeedback';
 import { format } from 'date-fns';
 import { useDebouncedAction } from '../hooks/useDebouncedAction';
 import { useSurfaceMessage } from '../hooks/useSurfaceMessage';
-import { colors, spacing, radius, shadow, typography } from '../theme';
+import { useTheme } from '../hooks/useTheme';
 import { Card, Button, Col } from '../components/UI';
 import { CheckIn } from '../types';
 
 export default function JournalScreen() {
   const { triggerHaptic } = useHapticFeedback();
   const { checkIns, addCheckIn, reasons } = useAppStore();
+  const { colors, spacing, radius, shadow, typography } = useTheme();
   const [selectedMood, setSelectedMood] = useState(3);
   const [note, setNote] = useState('');
   const [isLogged, setIsLogged] = useState(false);
