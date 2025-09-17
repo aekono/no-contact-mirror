@@ -38,7 +38,7 @@ export default function HomeScreen() {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const { triggerHaptic } = useHapticFeedback();
   const insets = useSafeAreaInsets();
-  const { colors } = useTheme();
+  const { colors, spacing, radius, shadow, typography } = useTheme();
   
   const { 
     lastContactAt, 
@@ -51,6 +51,32 @@ export default function HomeScreen() {
     setLastContactNow,
     resetAll
   } = useAppStore();
+
+  const styles = StyleSheet.create({
+    container: { 
+      flex: 1, 
+      backgroundColor: colors.bg
+    },
+    streakBadge: { 
+      alignItems: 'center' 
+    },
+    modalWrap: { 
+      flex: 1, 
+      backgroundColor: 'rgba(0,0,0,0.35)', 
+      justifyContent: 'flex-end' 
+    },
+    modalBackdrop: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+    },
+    panicCard: {
+      margin: spacing(2),
+      marginBottom: spacing(3),
+    },
+  });
   
   // Compute isZeroState locally to ensure re-renders
   const isZeroState = !lastContactAt;
@@ -210,28 +236,3 @@ export default function HomeScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: colors.bg
-  },
-  streakBadge: { 
-    alignItems: 'center' 
-  },
-  modalWrap: { 
-    flex: 1, 
-    backgroundColor: 'rgba(0,0,0,0.35)', 
-    justifyContent: 'flex-end' 
-  },
-  modalBackdrop: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-  panicCard: {
-    margin: spacing(2),
-    marginBottom: spacing(3),
-  },
-});

@@ -7,7 +7,7 @@ import { spacing, radius, typography, shadow } from '../theme';
 interface Props {
   title: string;
   subtitle?: string;
-  icon: keyof typeof Ionicons.glyphMap;
+  icon: string;
   onPress: () => void;
 }
 

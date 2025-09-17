@@ -1,4 +1,4 @@
-import { getColors } from '../theme';
+import { getColors, spacing, radius, shadow, typography } from '../theme';
 import { useThemeContext } from '../theme/ThemeContext';
 
 export function useTheme() {
@@ -9,5 +9,5 @@ export function useTheme() {
     // provider not mounted yet; fall back
   }
   const colors = getColors(preset as any);
-  return { colors };
+  return { colors, spacing, radius, shadow, typography };
 }

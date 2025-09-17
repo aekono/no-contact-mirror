@@ -15,6 +15,115 @@ export default function JournalScreen() {
   const { checkIns, addCheckIn, reasons } = useAppStore();
   const { colors, spacing, radius, shadow, typography } = useTheme();
   const [selectedMood, setSelectedMood] = useState(3);
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.bg,
+    },
+    content: {
+      flex: 1,
+      padding: spacing(2),
+      paddingBottom: spacing(4), // Extra padding for iOS home pill
+    },
+    form: {
+      gap: spacing(1),
+      marginBottom: spacing(2),
+    },
+    input: {
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: radius.md,
+      padding: spacing(1.5),
+      fontSize: 16,
+      backgroundColor: colors.muted,
+      color: colors.text,
+      textAlignVertical: 'top',
+    },
+    button: {
+      paddingVertical: spacing(1.5),
+      paddingHorizontal: spacing(2),
+      backgroundColor: colors.accent,
+      borderRadius: radius.md,
+      alignItems: 'center',
+      marginTop: spacing(1),
+    },
+    buttonText: {
+      color: colors.text,
+      fontWeight: '600',
+      fontSize: 16,
+    },
+    successMessage: {
+      marginTop: spacing(1),
+      paddingVertical: spacing(1.5),
+      paddingHorizontal: spacing(2),
+      backgroundColor: colors.success + '20',
+      borderRadius: radius.lg,
+      borderWidth: 1,
+      borderColor: colors.success + '40',
+      alignItems: 'center',
+    },
+    successText: {
+      color: colors.success,
+      fontWeight: '600',
+    },
+    checkInList: {
+      margin: spacing(2),
+      marginBottom: spacing(3),
+    },
+    checkInItem: {
+      paddingVertical: spacing(1.5),
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border,
+    },
+    checkInHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: spacing(0.5),
+    },
+    checkInEmoji: {
+      fontSize: 20,
+    },
+    keyboardAvoidingView: {
+      flex: 1,
+    },
+    noteSection: {
+      gap: spacing(1),
+      marginBottom: spacing(2),
+    },
+    noteInput: {
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: radius.md,
+      padding: spacing(1.5),
+      fontSize: 16,
+      backgroundColor: colors.muted,
+      height: 80,
+      textAlignVertical: 'top',
+      color: colors.text,
+    },
+    buttonRow: {
+      flexDirection: 'row',
+      marginTop: spacing(1),
+    },
+    modalWrap: { 
+      flex: 1, 
+      backgroundColor: 'rgba(0,0,0,0.35)', 
+      justifyContent: 'flex-end' 
+    },
+    modalBackdrop: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+    },
+    panicCard: {
+      margin: spacing(2),
+      marginBottom: spacing(3),
+    },
+  });
   const [note, setNote] = useState('');
   const [isLogged, setIsLogged] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -283,74 +392,3 @@ export default function JournalScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.bg,
-  },
-  keyboardAvoidingView: {
-    flex: 1,
-  },
-  content: {
-    padding: spacing(2),
-    paddingBottom: spacing(4), // Extra padding for iOS home pill
-  },
-  noteSection: {
-    gap: spacing(1),
-    marginBottom: spacing(2),
-  },
-  noteInput: {
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: radius.md,
-    padding: spacing(1.5),
-    fontSize: 16,
-    backgroundColor: colors.muted,
-    height: 80,
-    textAlignVertical: 'top',
-    color: colors.text,
-  },
-  checkInItem: {
-    paddingVertical: spacing(1.5),
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  checkInHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing(0.5),
-  },
-  checkInEmoji: {
-    fontSize: 20,
-  },
-  successMessage: {
-    marginTop: spacing(1),
-    paddingVertical: spacing(1.5),
-    paddingHorizontal: spacing(2),
-    backgroundColor: colors.success + '20',
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.success + '40',
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    marginTop: spacing(1),
-  },
-  modalWrap: { 
-    flex: 1, 
-    backgroundColor: 'rgba(0,0,0,0.35)', 
-    justifyContent: 'flex-end' 
-  },
-  modalBackdrop: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-  panicCard: {
-    margin: spacing(2),
-    marginBottom: spacing(3),
-  },
-});

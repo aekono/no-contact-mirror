@@ -65,8 +65,8 @@ export default function StopwatchHero({ lastContactAt, onOpenPanic, onLayout }: 
       <Svg width={size} height={size} style={{ marginBottom: spacing(2) }} viewBox={`0 0 ${size} ${size}`}>
         <Defs>
           <LinearGradient id="forest-ring" x1="0" y1="0" x2="1" y2="1">
-            <Stop offset="0" stopColor={colors.forest?.[600] || '#1F4A2A'} stopOpacity="1" />
-            <Stop offset="1" stopColor={colors.forest?.[400] || '#4A7C59'} stopOpacity="1" />
+            <Stop offset="0" stopColor={colors.accent} stopOpacity="1" />
+            <Stop offset="1" stopColor={colors.success} stopOpacity="1" />
           </LinearGradient>
         </Defs>
 
@@ -75,7 +75,7 @@ export default function StopwatchHero({ lastContactAt, onOpenPanic, onLayout }: 
           cx={cx} 
           cy={cy} 
           r={r} 
-          stroke={colors.forest?.[800] || '#0F2A16'} 
+          stroke={colors.muted} 
           strokeWidth={stroke} 
           fill="none"
           strokeLinecap="round"

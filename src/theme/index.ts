@@ -14,18 +14,6 @@ export const presets: Record<ThemePreset, Colors> = {
     border: '#1F2633',
     success: '#5ED3A8',
     muted: '#0B0F16',
-    // Forest tokens for nature theme
-    forest: {
-      900: '#0A1F0F',
-      800: '#0F2A16', 
-      700: '#14351D',
-      600: '#1F4A2A',
-      500: '#2D5A37',
-      400: '#4A7C59',
-      300: '#6B9D7B',
-      200: '#8FBE9D',
-      100: '#B6D9BF',
-    },
   },
   auroraCalm: {
     bg: '#071417',
@@ -38,18 +26,6 @@ export const presets: Record<ThemePreset, Colors> = {
     border: '#123039',
     success: '#5ED3A8',
     muted: '#08171A',
-    // Forest tokens for nature theme
-    forest: {
-      900: '#0A1F0F',
-      800: '#0F2A16', 
-      700: '#14351D',
-      600: '#1F4A2A',
-      500: '#2D5A37',
-      400: '#4A7C59',
-      300: '#6B9D7B',
-      200: '#8FBE9D',
-      100: '#B6D9BF',
-    },
   },
   midnightPeach: {
     bg: '#110D12',
@@ -62,18 +38,6 @@ export const presets: Record<ThemePreset, Colors> = {
     border: '#2C1F36',
     success: '#7ED7B7',
     muted: '#0E0A10',
-    // Forest tokens for nature theme
-    forest: {
-      900: '#0A1F0F',
-      800: '#0F2A16', 
-      700: '#14351D',
-      600: '#1F4A2A',
-      500: '#2D5A37',
-      400: '#4A7C59',
-      300: '#6B9D7B',
-      200: '#8FBE9D',
-      100: '#B6D9BF',
-    },
   },
   forestGlow: {
     bg: '#0C1110',
@@ -86,18 +50,6 @@ export const presets: Record<ThemePreset, Colors> = {
     border: '#143026',
     success: '#61E3A1',
     muted: '#09120F',
-    // Forest tokens for nature theme
-    forest: {
-      900: '#0A1F0F',
-      800: '#0F2A16', 
-      700: '#14351D',
-      600: '#1F4A2A',
-      500: '#2D5A37',
-      400: '#4A7C59',
-      300: '#6B9D7B',
-      200: '#8FBE9D',
-      100: '#B6D9BF',
-    },
   },
 };
 

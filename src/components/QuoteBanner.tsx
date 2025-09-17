@@ -73,7 +73,7 @@ export default function QuoteBanner() {
       styles.container,
       {
         backgroundColor: 'rgba(255, 255, 255, 0.08)', // Light/translucent surface
-        borderColor: colors.forest?.[700] || colors.border,
+        borderColor: colors.border,
       }
     ]}>
       <RightDoodle />
