@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "No-Contact",
+    "slug": "no-contact-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "primaryColor": "#6CA0FF",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0E1116"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.no-contact.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSUserNotificationsUsageDescription": "This app uses notifications to remind you about your no-contact journey and provide encouragement."
+      }
+    },
+    "android": {
+      "package": "com.no_contact.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0E1116"
+      },
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.VIBRATE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "notification": {
+      "icon": "./assets/icon.png",
+      "color": "#6CA0FF"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id-here"
+      }
+    }
+  }
+}

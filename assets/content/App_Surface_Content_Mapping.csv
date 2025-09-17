@@ -1,0 +1,10 @@
+surface,categories,notes
+Home Rotating Support Message,"reframe, values_prompt, self_compassion, notification","Cycle evidence-based reframes, values prompts, and compassion lines. Keep ≤130 chars."
+Panic Modal — Urge Surfing Timer,"surfer_tick, breath, coping_card",Tick message every 45–60s. Include breath cues. Quick Coping Cards accessible.
+Panic Modal — Coping Deck,"coping_card, reframe, values_prompt",Show actionable cards. Shuffle or let users star favorites. Ensure large tap targets.
+Check-In Feedback (after Save),"reframe, self_compassion, values_prompt","After journal save, show one short supportive line (CBT reframe or value reminder)."
+Notifications (opt-in),"notification, if_then, values_prompt",Limit 1–2/day. Default evening. Discreet and supportive tone. Avoid shaming.
+Slip / Reset Flow,"reset, self_compassion, values_prompt","On slip, show compassionate reset prompts. Normalize slips. Suggest one tweak."
+Onboarding — Pre-Urge Plan,"if_then, values_prompt",Guide to set 3 If-Then plans and pick 3 values prompts. Stored for later reuse.
+Advanced Settings — Values Compass,values_prompt,Let user edit chosen values prompts; surface them across app.
+SOS Panel,disclaimer,Always show 'Not medical advice' + verified crisis lines.
