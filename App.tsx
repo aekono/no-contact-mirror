@@ -6,6 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Notifications from 'expo-notifications';
+import { useTheme } from './src/hooks/useTheme';
 
 // Import navigation
 import Tabs from './src/navigation/Tabs';
@@ -21,16 +22,45 @@ import AboutScreen from './src/screens/AboutScreen';
 import SOSScreen from './src/screens/SOSScreen';
 
 // Import components
-import { ErrorBoundary } from './src/components/ErrorBoundary';
+// ErrorBoundary removed during cleanup
 
 // Import theme
-import { colors } from './src/theme';
 import { ThemeProvider } from './src/theme/ThemeContext';
 
 // Import types
 import { RootStackParamList } from './src/types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+// Theme-aware app content component
+function AppContent() {
+  const { colors } = useTheme();
+  
+  return (
+    <SafeAreaProvider>
+      <StatusBar style="light" backgroundColor={colors.bg} />
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Tabs"
+          screenOptions={{
+            headerShown: false,
+            contentStyle: { backgroundColor: colors.bg },
+          }}
+        >
+          <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+          <Stack.Screen name="EditReasons" component={EditReasonsScreen} />
+          <Stack.Screen name="Settings" component={SettingsScreen} />
+          <Stack.Screen name="Analytics" component={AnalyticsScreen} />
+          <Stack.Screen name="AdvancedSettings" component={AdvancedSettingsScreen} />
+          <Stack.Screen name="ThemePresets" component={ThemePresetsScreen} />
+          <Stack.Screen name="Achievements" component={AchievementsScreen} />
+          <Stack.Screen name="About" component={AboutScreen} />
+          <Stack.Screen name="SOS" component={SOSScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+}
 
 // Configure notification behavior
 Notifications.setNotificationHandler({
@@ -57,31 +87,8 @@ export default function App() {
   }, []);
 
   return (
-    <ErrorBoundary>
-      <ThemeProvider>
-        <SafeAreaProvider>
-          <StatusBar style="light" backgroundColor={colors.bg} />
-          <NavigationContainer>
-            <Stack.Navigator
-              initialRouteName="Tabs"
-              screenOptions={{
-                headerShown: false,
-                contentStyle: { backgroundColor: colors.bg },
-              }}
-            >
-              <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
-              <Stack.Screen name="EditReasons" component={EditReasonsScreen} />
-              <Stack.Screen name="Settings" component={SettingsScreen} />
-              <Stack.Screen name="Analytics" component={AnalyticsScreen} />
-              <Stack.Screen name="AdvancedSettings" component={AdvancedSettingsScreen} />
-              <Stack.Screen name="ThemePresets" component={ThemePresetsScreen} />
-              <Stack.Screen name="Achievements" component={AchievementsScreen} />
-              <Stack.Screen name="About" component={AboutScreen} />
-              <Stack.Screen name="SOS" component={SOSScreen} />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </SafeAreaProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
