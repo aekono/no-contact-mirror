@@ -1,10 +1,8 @@
 import React, { useMemo } from 'react';
-import { View, Text } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-import { Card } from './UI';
 import { useTheme } from '../hooks/useTheme';
-import { spacing, typography } from '../theme';
+import { spacing, typography, radius } from '../theme';
 import { useAppStore } from '../store/useAppStore';
 
 const QUOTES = {
@@ -71,19 +69,38 @@ export default function QuoteBanner() {
   }, [days, reasons]);
 
   return (
-    <Card style={{ overflow: 'hidden', padding: 0 }}>
-      <LinearGradient
-        colors={[colors.accent, colors.success]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={{ padding: spacing(2), borderRadius: 16, minHeight: 84, justifyContent: 'center' }}
+    <View style={[
+      styles.container,
+      {
+        backgroundColor: 'rgba(255, 255, 255, 0.08)', // Light/translucent surface
+        borderColor: colors.forest?.[700] || colors.border,
+      }
+    ]}>
+      <RightDoodle />
+      <Text 
+        style={[typography.h3 as any, { color: colors.text }]}
+        numberOfLines={3} // Consistent numberOfLines={3}
       >
-        <RightDoodle />
-        <Text style={[typography.h3 as any, { color: colors.bg }]}>{quote}</Text>
-        <Text style={{ color: colors.bg, opacity: 0.85, marginTop: spacing(0.5) }}>
-          Stay the course. Future‑you is grateful.
-        </Text>
-      </LinearGradient>
-    </Card>
+        {quote}
+      </Text>
+      <Text style={[typography.body, { color: colors.subtext, marginTop: spacing(0.5) }]}>
+        Stay the course. Future‑you is grateful.
+      </Text>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: spacing(2),
+    borderRadius: radius.md,
+    borderWidth: 1,
+    minHeight: 44, // Min 44px tap target
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+});

@@ -21,6 +21,8 @@ interface CustomTheme {
   dangerColor: string;
 }
 
+type BackgroundStyle = 'nature' | 'tasteful' | 'bokeh' | 'clean';
+
 // Export persist key for reuse in resetAll
 export const PERSIST_KEY = 'no-contact-storage';
 
@@ -48,6 +50,7 @@ const DEFAULT_STATE: AppState = {
     dangerColor: '#FF6B6B',
   },
   achievements: [],
+  backgroundStyle: 'nature' as BackgroundStyle,
   settings: {
     hapticFeedback: true,
     soundEffects: true,
@@ -159,6 +162,7 @@ interface AppStore extends AppState {
   updateGoal: (id: string, updates: Partial<Goal>) => void;
   deleteGoal: (id: string) => void;
   setCustomTheme: (theme: CustomTheme) => void;
+  setBackgroundStyle: (style: BackgroundStyle) => void;
   updateSettings: (settings: Partial<AppState['settings']>) => void;
   
   // Computed getters
@@ -166,6 +170,7 @@ interface AppStore extends AppState {
   displayDayCount: number;
   currentStreakDays: number;
   longestStreakDays: number;
+  backgroundStyle: BackgroundStyle;
 }
 
 export const useAppStore = create<AppStore>()(
@@ -346,6 +351,10 @@ export const useAppStore = create<AppStore>()(
 
       setCustomTheme: (theme: CustomTheme) => {
         set({ customTheme: theme });
+      },
+
+      setBackgroundStyle: (style: BackgroundStyle) => {
+        set({ backgroundStyle: style });
       },
 
       updateSettings: (settings: Partial<AppState['settings']>) => {

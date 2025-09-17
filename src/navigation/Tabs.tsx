@@ -23,7 +23,7 @@ export default function Tabs() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        headerShown: true,
+        headerShown: route.name !== 'Home', // Hide header for Home screen
         headerStyle: { backgroundColor: colors.bg },
         headerTintColor: colors.text,
         headerRight: () => (
